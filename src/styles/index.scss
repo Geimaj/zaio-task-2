@@ -1,0 +1,194 @@
+@import "~bootstrap/scss/bootstrap";
+ 
+$radius: 60px;
+$shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+li {
+	list-style-type: none;
+}
+
+.card-body {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+
+	h1,
+	h6 {
+		font-weight: 600;
+	}
+
+	.ratings {
+		width: 50%;
+		margin-bottom: 1rem;
+	}
+
+	.online {
+		padding: 1rem;
+	}
+
+	.wrap {
+		width: 8rem;
+	}
+
+	.price {
+		h3 {
+			color: crimson;
+		}
+		span {
+			margin-right: 3rem;
+		}
+	}
+
+	#colours {
+		width: 100%;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+
+		li {
+			width: $radius/2;
+			height: $radius/2;
+			margin: 0.5rem;
+			border-radius: $radius;
+			cursor: pointer;
+
+			// shared
+			&.selected,
+			&:hover {
+				box-shadow: $shadow;
+			}
+
+			//selected only
+			&.selected {
+				padding: 2px;
+				border-radius: $radius;
+				border: 2px solid gray;
+				-webkit-animation-name: bounce;
+				animation-name: bounce;
+				animation-duration: 0.3s;
+				animation-iteration-count: 1;
+			}
+			div {
+				border-radius: $radius;
+				width: 100%;
+				height: 100%;
+				color: rgba($color: #000000, $alpha: 0);
+			}
+		}
+	}
+
+	.details {
+		$border: 1px solid darkgray;
+		border-top: $border;
+		border-bottom: $border;
+		padding: 1rem;
+		margin-bottom: 1rem;
+
+		#details {
+			ul {
+				margin: 0;
+				padding: 0;
+
+				li {
+					margin-left: 0;
+					box-shadow: $shadow;
+				}
+			}
+		}
+	}
+
+	.size,
+	.fit {
+		padding: 0.5rem;
+	}
+
+	.add {
+		div {
+			border: 1px solid black;
+			border-radius: $radius;
+			padding: 1rem 2rem;
+			margin-right: 1rem;
+		}
+		button {
+			border-radius: $radius;
+			background-color: black;
+			color: white;
+			padding: 1rem 3.5rem;
+			font-weight: 600;
+
+			&:hover {
+				background-color: white;
+				border: 1px solid black;
+				color: black;
+			}
+		}
+		margin-bottom: 2rem;
+	}
+
+	.help {
+		cursor: pointer;
+
+		&:hover {
+			color: rgb(50, 50, 200);
+		}
+	}
+}
+
+#modal {
+	.flex-container {
+		display: flex;
+		justify-content: flex-end;
+		flex-wrap: wrap;
+		div {
+			display: flex;
+		}
+	}
+	.selectedColourName {
+		align-self: center;
+		font-size: 1.5rem;
+	}
+	#quantity-controls {
+		margin-left: 2rem;
+		div {
+			align-items: center;
+
+			span {
+				font-size: 3rem;
+				margin: 0 1.5rem;
+			}
+		}
+
+		button {
+			background-color: black;
+			box-shadow: none;
+			border: none;
+			width: $radius;
+			height: $radius;
+			border-radius: $radius;
+			color: #eee;
+			font-size: 2rem;
+			font-weight: 600;
+
+			&:hover {
+				box-shadow: $shadow;
+			}
+
+			&[disabled] {
+				background-color: lightgray;
+			}
+		}
+	}
+}
+
+@keyframes bounce {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.5);
+	}
+}
